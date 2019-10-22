@@ -2,12 +2,13 @@ document.getElementById("addButton").addEventListener("click", todoObject);
 
 function todoObject() {
     let title = document.getElementById("todoTitle").value;
-    let description = document.getElementById("todoDescription").value;
+    let desc = document.getElementById("todoDescription").value;
 
     const newTodo = {
         title: title, 
-        description: description
+        description: desc
     }
+
     let form = document.getElementById("todoForm");
 
     let newTodoDiv = document.createElement("div");
@@ -26,3 +27,5 @@ function todoObject() {
  
  
 }
+
+module.exports = todoObject;
