@@ -27,5 +27,3 @@ function todoObject() {
  
  
 }
-
-module.exports = todoObject;

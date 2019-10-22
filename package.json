@@ -1,23 +1,14 @@
 {
-  "name": "todolist",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "hakemisto-nimi",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "jest",
-    "start": ""
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SakuHjelt/todolist.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SakuHjelt/todolist/issues"
-  },
-  "homepage": "https://github.com/SakuHjelt/todolist#readme",
-  "devDependencies": {
-    "jest": "^24.9.0"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
   }
 }

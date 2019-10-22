@@ -1,1 +1,0 @@
-// const addNewFunc = require('../functions')
