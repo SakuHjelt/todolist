@@ -8,21 +8,12 @@ var parser = bodyParser.urlencoded({ extended:true });
 
 var userData = [];
 
-//let prevData = fs.readFileSync('userData.json', 'utf-8',  JSON.stringify);
-
 let prevData = fs.readFile('userData.json', (err, data) => {
   userData = JSON.parse(data);
-  // console.log(userData)
 });
 
-// console.log(prevData);
-
-// console.log(userData);
 userData.push(prevData);
 
-// var MyFuncs = require('./rest-functions');
-// var method = MyFuncs.save;
-// MyFuncs.log('Hello');
 
 router.route('/')
 .get((req, res, next) => {
@@ -57,10 +48,5 @@ router.route('/')
 function save () {
   fs.writeFileSync('userData.json', JSON.stringify(userData), () => { console.log('Dataentry saved.')})
 }
-
-// function read () {
-//   fs.readFileSync('userData.json', JSON.stringify(userData), () => { console.log('Dataentry saved.')})
-// }
-
 
 module.exports = router;
