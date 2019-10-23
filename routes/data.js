@@ -39,9 +39,19 @@ router.route('/')
   .location('/api/data/'+100)
   .send(data);
   console.log(data.desc);
+})
+
+.delete((req, res) => {
+  console.log("Delete: " + req.params.id);
+  for (let i = 0; i < userData.length; i++) {
+    if (userData[i].id == req.params.key) {
+      userData.splice(i, 1);
+      res.json({ msg: "deleted: " + req.params.id });
+      save();
+      return;
+    }
+  }
 });
-
-
 
 function save () {
   fs.writeFileSync('userData.json', JSON.stringify(userData), () => { console.log('Dataentry saved.')})

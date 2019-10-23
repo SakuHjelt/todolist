@@ -2,8 +2,8 @@
 getAll();
 
 document.getElementById("addButton").addEventListener("click", todoObject);
+function todoObject(event) {
 
-function todoObject() {
     let title = document.getElementById("todoTitle").value;
     let desc = document.getElementById("todoDescription").value;
 
@@ -27,6 +27,7 @@ function todoObject() {
     newTodoDiv.appendChild(newTodoTitle);
     newTodoDiv.appendChild(newTodoParagraph);
     form.append(newTodoDiv);
+    event.preventDefault();
 }
 
 
@@ -44,6 +45,9 @@ function getAll() {
                 let prevDiv = document.createElement('div');
                 let prevTitle = document.createElement('h3');
                 let prevDesc = document.createElement('p');
+                let delBtn = document.createElement('button');
+                delBtn.setAttribute("method", "delete");
+                delBtn.innerText = "Delete"
 
                 let prevTitleNode = document.createTextNode(data[i].title)
                 let prevDescNode = document.createTextNode(data[i].desc);
@@ -53,10 +57,22 @@ function getAll() {
 
                 prevDiv.appendChild(prevTitle);
                 prevDiv.appendChild(prevDesc);
+                prevDiv.appendChild(delBtn);
 
                 prevDataDiv.appendChild(prevDiv);
             }
         })
 };
 
+function deleteItem(id) {
+    console.log(id);
+    $.ajax({
+        url: `http://localhost:3000/api/topics/${id}`,
+        type: "DELETE",
+        success: function (result) {
+            console.dir(result)
+            getAll();
+        }
+    })
+}
 

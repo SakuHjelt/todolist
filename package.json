@@ -13,6 +13,7 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "nodemon": "^1.19.4",
+    "parser": "^0.1.4",
     "uuidv4": "^5.0.1"
   },
   "devDependencies": {
