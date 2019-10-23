@@ -30,14 +30,15 @@ router.route('/')
   res.send(userEntries);
 })
 .post(parser, (req, res) => {
+  console.log('testi');
   const data = req.body;
   data.id = uuid();
+  console.dir(data);
   userData.push(data);
   save();
-  res.status(201)
-  res.json(data)
-  .location('/api/data/'+100)
-  .send(data);
+  res.status(201).location('/api/data/'+100);
+  res.json(data);
+ 
   console.log(data.desc);
 })
 
