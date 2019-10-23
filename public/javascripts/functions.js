@@ -1,3 +1,9 @@
+// const response =  fetch('../userData.json');
+
+// console.log(JSON.stringify(response));
+// console.log('moikka')
+
+
 document.getElementById("addButton").addEventListener("click", todoObject);
 
 function todoObject() {
@@ -24,6 +30,4 @@ function todoObject() {
     newTodoDiv.appendChild(newTodoTitle);
     newTodoDiv.appendChild(newTodoParagraph);
     form.append(newTodoDiv);
- 
- 
 }

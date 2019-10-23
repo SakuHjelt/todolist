@@ -8,17 +8,17 @@
 </head>
 <body>
     <h1 class="mainTitle">Todo-List</h1>
-    <form action="" class="todoForm" id="todoForm">
+    <form action="/api/data" class="todoForm" id="todoForm" method="POST">
         <label for="title" class="labelTitle">Title:</label>
         <br>
         <input type="text" name="title" id="todoTitle">
         <br>
         <label for="textfield" class="labelTextField">Description:</label>
         <br>
-        <textarea class="textfield" id="todoDescription"></textarea>
+        <textarea class="textfield" name="desc" id="todoDescription"></textarea>
         <br>
+        <input type="submit" id="addButton" />
     </form>
-    <input type="submit" id="addButton" />
     <script type="text/javascript" src="./javascripts/functions.js"></script>
 </body>
 </html>
