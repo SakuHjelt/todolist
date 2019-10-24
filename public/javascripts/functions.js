@@ -1,57 +1,64 @@
-// getting all previous data entries
+// Function to get all previous data entries when page reloads
 getAll();
-
 document.getElementById("addButton").addEventListener("click", postNew);
 
+// function post new data entry and run function to get old entries
 function postNew() {
     event.preventDefault();
-
     let title = document.getElementById('todoTitle').value;
     let desc = document.getElementById('todoDescription').value;
-    let items = {title: title, desc: desc}
+    if (title == '' || desc == ''){
+        alert('All fields must include data')
+    } else {
+    let items = { title: title, desc: desc }
     url = 'http://localhost:3000/api/data'
     fetch(url, {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         redirect: 'follow',
         body: JSON.stringify(items)
     })
-    .then((resp) => {
-        getAll();
-    })
-    }
+        .then((resp) => {
+            getAll();
+        })
+}
+}
 
+// Function that gets all the old data entries
 function getAll() {
     url = 'http://localhost:3000/api/data'
     fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-            document.getElementById('prevData').innerHTML="";
-            // console.log(data[0].title);
+            document.getElementById('prevData').innerHTML = "";
             for (i = 0; i < data.length; i++) {
-                console.log(data[i].title);
 
+                // selecting elements
                 let prevDataDiv = document.getElementById('prevData');
 
-                let prevDiv = document.createElement('div');
-                prevDiv.setAttribute('id', 'toDoCollection');
 
+                // creating new elements
+                let prevDiv = document.createElement('div');
                 let prevTitle = document.createElement('h3');
                 let prevDesc = document.createElement('p');
                 let prevId = document.createElement('p');
-                prevId.style.display = 'none';
 
                 let delBtn = document.createElement('button');
                 let updateBtn = document.createElement('button');
 
-                delBtn.setAttribute('onclick', `deleteData('${data[i].title}')`);
+                //styles and attributes
+                prevDiv.setAttribute('id', 'toDoCollection');
+                prevId.style.display = 'none';
+
+                delBtn.setAttribute('onclick', `deleteData('${data[i].id}')`);
                 delBtn.innerText = "Delete"
+
                 updateBtn.setAttribute('onclick', `updateData('${data[i].title}','${data[i].desc}','${data[i].id}')`);
                 updateBtn.innerText = "Update"
-                
 
+                // nodes and appends
                 let prevTitleNode = document.createTextNode(data[i].title)
                 let prevDescNode = document.createTextNode(data[i].desc);
                 let prevIdNode = document.createTextNode(data[i].id);
@@ -66,57 +73,67 @@ function getAll() {
                 prevDiv.appendChild(updateBtn);
                 prevDiv.appendChild(prevId);
 
-
                 prevDataDiv.appendChild(prevDiv);
             }
         })
 };
 
-function deleteData(title, desc) {
-    console.log("delete:")
-    console.log(title);
-    let key = document.querySelector('h3').textContent;
-    console.log('avain on ' + key);
-    console.log('Click');
-    url = 'http://localhost:3000/api/data/'+title;
+// function to delete specific data entry
+function deleteData(id) {
+    url = 'http://localhost:3000/api/data/' + id;
     fetch(url, {
         method: 'DELETE',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         redirect: 'follow',
-        // body: JSON.stringify()
     })
-    .then((resp) => {
-        getAll();
-    })
-    }
+        .then((resp) => {
+            getAll();
+        })
+}
 
 
+// function to create dynamic "update-form"
+function updateData(title, desc, id) {
 
-function updateData (title, desc, id){
-
-    console.log('tuleeko mukana vielä ' + title + desc + id);
+    if (document.contains(document.getElementById('newForm'))){
+        document.getElementById('newForm').remove();
+    } 
+    
+    //selecting elements
     let clientBody = document.querySelector('body');
 
+    //creating elements
     let updateDiv = document.createElement('div')
     let updateForm = document.createElement('form');
-    updateForm.setAttribute('class', 'new-form')
-    updateForm.style.backgroundColor = 'pink';
-    updateForm.style.width = '300px';
-    updateForm.style.textAlign = 'center';
-
     let titleP = document.createElement('p');
     let descP = document.createElement('p');
 
     let formSaveBtn = document.createElement('button');
-    formSaveBtn.setAttribute('onclick', `putFunction('${title}')`);
+
+    // styles and attributes
+
+    updateForm.setAttribute('class', 'newForm')
+    updateForm.setAttribute('id', 'newForm')
+    formSaveBtn.setAttribute('onclick', `putFunction('${id}')`);
     formSaveBtn.setAttribute('type', 'button');
+
+    updateForm.style.backgroundColor = 'pink';
+    updateForm.style.width = '300px';
+    updateForm.style.textAlign = 'center';
+    updateForm.style.margin = '0 auto';
+    // updateForm.style.zIndex = '-1'
+    // updateForm.style.position = 'relative'
+
+    // clientBody.style.filter = 'blur(3px)';
+
 
     formSaveBtn.innerText = "save";
     formSaveBtn.style.display = 'block';
     formSaveBtn.style.margin = '0 auto';
 
+    // nodes and appends
     let titlePNode = document.createTextNode('New title');
     let descPNode = document.createTextNode('New description');
 
@@ -151,28 +168,27 @@ function updateData (title, desc, id){
     updateForm.appendChild(idInput);
 
     updateDiv.appendChild(updateForm);
-    clientBody.appendChild(updateDiv);
+    clientBody.append(updateDiv);
 }
 
-function putFunction(title){
-    console.log("tuleeko title" + title);
+
+function putFunction(id) {
     let updateTitleValue = document.getElementById('updateTitle').value;
     let updateDescValue = document.getElementById('updateDesc').value;
     let updateIdValue = document.getElementById('updateId').value;
 
-    console.log(updateTitleValue + updateDescValue);
-
-    url = 'http://localhost:3000/api/data/' + title;
+    url = 'http://localhost:3000/api/data/' + id;
     console.log(url);
     fetch(url, {
         method: 'PUT',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         redirect: 'follow',
-        body: JSON.stringify({updateTitleValue, updateDescValue, updateIdValue})
+        body: JSON.stringify({ updateTitleValue, updateDescValue, updateIdValue })
     })
-    .then((resp) => {
-        getAll();
-    })
-    }
+        .then((resp) => {
+            getAll();
+        })
+        document.getElementById('newForm').remove();
+}

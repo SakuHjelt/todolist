@@ -1,8 +1,169 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(197, 230, 228);
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  font-size: 60px;
+  background: url(https://media.giphy.com/media/ullzX0uop0xTq/giphy.gif);
+  background-size: 1000px;
+  background-position: center;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+ }
+
+ h3 {
+   font-size: 2em;
+ }
+
+ .todoForm {
+   margin: 0 auto;
+   padding-top: 2em;
+   min-width: 400px;
+   max-width: 400px;
+   height: 150px;
+   align-content: center;
+   text-align: center;
+   border-radius: 10px;
+   background-color: rgb(180, 187, 173);
+ }
+
+ .prevData {
+   margin-top: 50px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+ }
+
+ #toDoCollection {
+   border-radius: 10px;
+   border: 1px solid black;
+   margin: 10px;
+   height: 200px;
+   width: 200px;
+   text-align: center;
+ }
+
+.new-form {
+  margin: auto;
 }
+
+
+
+/* ------------------SAKUN KOODIT ---------------*/
+/* body {
+ padding: 50px;
+ font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.mainTitle {
+ margin: 0 auto;
+ font-size: 60px;
+ background: url(https://media.giphy.com/media/ullzX0uop0xTq/giphy.gif);
+ background-size: 1000px;
+ background-position: center;
+ -webkit-background-clip: text;
+ color: transparent;
+}
+.todoForm {
+ z-index: 1;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ top: 50%;
+ left: 50%;
+ position: absolute;
+ transform: translate(-50%, -50%);
+   height: 200px;
+   width: 250px;
+   margin: 40px;
+   padding: 2em;
+   background: url(paperi.jpg);
+   position: relative;
+}
+ .todoForm,
+ .todoForm::before,
+ .todoForm::after {
+   -webkit-filter: drop-shadow(2px 2px 2px #535353);
+ }
+ .todoForm::before,
+ .todoForm::after {
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: url(paperi.jpg);
+ }
+
+ .todoForm::before {
+   left: 7px;
+   top: 5px;
+   z-index: -100;
+   background: url(paperi.jpg); */
+ /* }
+ 
+ .todoForm::after {
+   left: 12px;
+   top: 10px;
+   z-index: -90;
+   background: url(paperi.jpg);
+ }
+.labelTitle {
+ left: 50%;
+}
+.todoTitle {
+ left: 50%;
+ font-size: 14px;
+ color: rgb(0, 0, 0);
+ border: none;
+ border-bottom: 1px solid rgb(0, 0, 0);
+ background: transparent;
+ outline: none;
+}
+.labelTextField {
+}
+.textfield {
+ width: 100%;
+ height: 100px;
+ padding: 15px 10px;
+ box-sizing: border-box;
+ font-size: 14px;
+ color: rgb(0, 0, 0);
+ background: rgba(0, 0, 0, 0.2);
+}
+.addBtn {
+}
+.prevData {
+}
+#toDoCollection {
+ z-index: 1;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ top: 50%;
+ left: 10%;
+ transform: translate(-50%, -50%);
+ display: inline-block;
+   height: 100px;
+   width: 150px;
+   margin: 40px;
+   padding: 1em;
+   background: url(paperi.jpg);
+   position: relative;
+   -webkit-filter: drop-shadow(10px 10px 4px #535353);
+   transform: rotate(-5deg);
+}
+#toDoCollection:after {
+   content: "";
+   position: absolute;
+   top: -2em;
+   left: 0;
+   right: 2em;
+   border-width: 1em;
+   border-style: solid;
+   border-color: rgb(202, 202, 28);
+}
+#toDoCollection:before {
+   content: "";
+   position: absolute;
+   top: -2em;
+   right: 0;
+   border-width: 2em 2em 0 0;
+   border-style: solid;
+   border-color: rgb(160, 160, 21);
+}   */
