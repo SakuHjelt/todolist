@@ -56,6 +56,22 @@ router.route('/:title')
 }
   res.json({msg:"No such topic"});
 })
+.put(parser, (req, res) => {
+  console.log("testiPut");
+  console.log(req.body);
+  let body = req.body;
+  for (let i=0; i<userData.length; i++) {
+    if (userData[i].title == req.params.title) {
+    userData[i].title = body.updateTitleValue;
+    userData[i].desc = body.updateDescValue;
+    console.log(body.updateDescValue);
+    // userData.splice(i, 1);
+    res.json({msg:"updated: " + req.params.title})
+    save();
+    return;
+    }
+  }
+})
 
 function save () {
   fs.writeFileSync('userData.json', JSON.stringify(userData), () => { console.log('Dataentry saved.')})
