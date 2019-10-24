@@ -33,17 +33,29 @@ router.route('/')
   console.log(data.desc);
 })
 
+router.route('/:title')
+.get((req, res) => {
+    for (var data of userData) {
+        if (data.title == req.params.title) {
+            res.json(data);
+            return;
+        }
+    }
+    res.json("{'msg': 'Error, no such thing to do!'}");
+})
 .delete((req, res) => {
-  console.log("Delete: " + req.params.id);
-  for (let i = 0; i < userData.length; i++) {
-    if (userData[i].id == req.params.key) {
+  console.log("Delete: " + req.params.title);
+  console.log('kuks minä olen' + req.params.title);
+  for (let i=0; i<userData.length; i++) {
+      if (userData[i].title == req.params.title) {
       userData.splice(i, 1);
-      res.json({ msg: "deleted: " + req.params.id });
+      res.json({msg:"deleted: " + req.params.title})
       save();
       return;
-    }
   }
-});
+}
+  res.json({msg:"No such topic"});
+})
 
 function save () {
   fs.writeFileSync('userData.json', JSON.stringify(userData), () => { console.log('Dataentry saved.')})

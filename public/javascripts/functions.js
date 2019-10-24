@@ -36,10 +36,12 @@ function getAll() {
                 let prevDataDiv = document.getElementById('prevData');
 
                 let prevDiv = document.createElement('div');
+                prevDiv.setAttribute('id', 'toDoCollection');
                 let prevTitle = document.createElement('h3');
                 let prevDesc = document.createElement('p');
                 let delBtn = document.createElement('button');
-                delBtn.setAttribute("method", "delete");
+
+                delBtn.setAttribute('onclick', `deleteData('${data[i].title}')`);
                 delBtn.innerText = "Delete"
 
                 let prevTitleNode = document.createTextNode(data[i].title)
@@ -57,14 +59,22 @@ function getAll() {
         })
 };
 
-function deleteItem(id) {
-    console.log(id);
-    $.ajax({
-        url: `http://localhost:3000/api/topics/${id}`,
-        type: "DELETE",
-        success: function (result) {
-            console.dir(result)
-            getAll();
-        }
+function deleteData(title) {
+    console.log("delete:")
+    console.log(title);
+    let key = document.querySelector('h3').textContent;
+    console.log('avain on ' + key);
+    console.log('Click');
+    url = 'http://localhost:3000/api/data/'+title;
+    fetch(url, {
+        method: 'DELETE',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        // body: JSON.stringify()
     })
-}
+    .then((resp) => {
+        getAll();
+    })
+    }
