@@ -1,22 +1,29 @@
 body {
-  background-color: rgb(197, 230, 228);
+  background-color: rgb(247, 227, 217);
+  background-image: url('img/wave.png');
+  
 }
 
 h1 {
+  padding: 50px 0 20px 0;
   font-size: 60px;
-  background: url(https://media.giphy.com/media/ullzX0uop0xTq/giphy.gif);
+  font-family: 'Julius Sans One', sans-serif;
+  /*background: url(https://media.giphy.com/media/ullzX0uop0xTq/giphy.gif);*/
   background-size: 1000px;
   background-position: center;
   -webkit-background-clip: text;
-  color: transparent;
+  color: #4a274f;
   text-align: center;
  }
 
  h3 {
-   font-size: 2em;
+   font-size: 1.5em;
+   font-family: 'Julius Sans One', sans-serif;
+   color: #4a274f;
  }
 
  .todoForm {
+  font-family: 'Cousine', monospace;
    margin: 0 auto;
    padding-top: 2em;
    min-width: 400px;
@@ -25,10 +32,12 @@ h1 {
    align-content: center;
    text-align: center;
    border-radius: 10px;
-   background-color: rgb(180, 187, 173);
+   background-color: rgb(243, 204, 184);
+   box-shadow: 0 10px 10px -6px #4a274f;
  }
 
  .prevData {
+  font-family: 'Cousine', monospace;
    margin-top: 50px;
    display: flex;
    justify-content: center;
@@ -36,19 +45,63 @@ h1 {
  }
 
  #toDoCollection {
+  font-family: 'Cousine', monospace;
    border-radius: 10px;
-   border: 1px solid black;
+   /* border: 5px solid black; */
    margin: 10px;
    height: 200px;
-   width: 200px;
+   width: 250px;
    text-align: center;
+   background-color: rgb(243, 204, 184);
+   box-shadow: 0 10px 10px -6px #4a274f;
+   padding: 10px;
  }
 
 .new-form {
-  margin: auto;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.newForm {
+  font-family: 'Julius Sans One', sans-serif;
+  margin: 20px auto;
+  padding-top: 1em;
+  min-width: 400px;
+  min-width: 400px;
+  min-height: 225px;
+  align-content: center;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(243, 204, 184);
+  box-shadow: 0 10px 10px -6px #4a274f;
+  animation: backwards;
 }
 
-
+button {
+  /* font-family: 'Cousine', monospace; */
+    background-color: rgb(243, 204, 184);
+    border-radius: 10px;
+    margin: 15px auto;
+    border: 1.5px solid white;
+    color: #4a274f;
+    padding: 12px 16px;
+    /* font-size: 14px; */
+    cursor: pointer;
+}
+button:hover {
+  background-color: rgb(241, 179, 148);
+}
+#addButton {
+  font-family: 'Cousine', monospace;
+  background-color: rgb(243, 204, 184);
+  border-radius: 10px;
+  margin: 2px;
+  border: 1.5px solid white;
+  color: #4a274f;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#addButton:hover {
+  background-color: rgb(241, 179, 148);
 
 /* ------------------SAKUN KOODIT ---------------*/
 /* body {

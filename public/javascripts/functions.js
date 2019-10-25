@@ -53,10 +53,12 @@ function getAll() {
                 prevId.style.display = 'none';
 
                 delBtn.setAttribute('onclick', `deleteData('${data[i].id}')`);
-                delBtn.innerText = "Delete"
+                delBtn.setAttribute('class', 'fa fa-trash')
+                // delBtn.innerText = "Delete"
 
                 updateBtn.setAttribute('onclick', `updateData('${data[i].title}','${data[i].desc}','${data[i].id}')`);
-                updateBtn.innerText = "Update"
+                // updateBtn.innerText = "Update"
+                updateBtn.setAttribute('class', 'fa fa-edit');
 
                 // nodes and appends
                 let prevTitleNode = document.createTextNode(data[i].title)
@@ -119,19 +121,20 @@ function updateData(title, desc, id) {
     formSaveBtn.setAttribute('onclick', `putFunction('${id}')`);
     formSaveBtn.setAttribute('type', 'button');
 
-    updateForm.style.backgroundColor = 'pink';
-    updateForm.style.width = '300px';
-    updateForm.style.textAlign = 'center';
-    updateForm.style.margin = '0 auto';
+    // updateForm.style.backgroundColor = 'pink';
+    // updateForm.style.width = '300px';
+    // updateForm.style.textAlign = 'center';
+    // updateForm.style.margin = '0 auto';
     // updateForm.style.zIndex = '-1'
     // updateForm.style.position = 'relative'
 
     // clientBody.style.filter = 'blur(3px)';
 
 
-    formSaveBtn.innerText = "save";
+    formSaveBtn.innerText = "Save";
     formSaveBtn.style.display = 'block';
-    formSaveBtn.style.margin = '0 auto';
+    // formSaveBtn.style.margin = '5px auto';
+    // formSaveBtn.style.margin-bo = '5px auto';
 
     // nodes and appends
     let titlePNode = document.createTextNode('New title');
