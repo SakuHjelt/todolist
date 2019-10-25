@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1 class="mainTitle">TO DO's</h1>
+    <h1 class="mainTitle" id="mainTitle">TO DO's</h1>
     <form class="todoForm" id="todoForm">
         <label for="title" class="labelTitle">Title:</label>
         <br>
-        <input type="text" name="title" id="todoTitle">
+        <input type="text" name="title" id="todoTitle" onfocus="this.value=''">
         <br>
         <label for="textfield" class="labelTextField">Description:</label>
         <br>
-        <textarea class="textfield" name="desc" id="todoDescription"></textarea>
+        <textarea class="textfield" name="desc" id="todoDescription" onfocus="this.value=''"></textarea>
         <br>
         <input type="button" id="addButton" value="Send"/>
     </form>

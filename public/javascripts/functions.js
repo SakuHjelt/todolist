@@ -121,20 +121,8 @@ function updateData(title, desc, id) {
     formSaveBtn.setAttribute('onclick', `putFunction('${id}')`);
     formSaveBtn.setAttribute('type', 'button');
 
-    // updateForm.style.backgroundColor = 'pink';
-    // updateForm.style.width = '300px';
-    // updateForm.style.textAlign = 'center';
-    // updateForm.style.margin = '0 auto';
-    // updateForm.style.zIndex = '-1'
-    // updateForm.style.position = 'relative'
-
-    // clientBody.style.filter = 'blur(3px)';
-
-
     formSaveBtn.innerText = "Save";
     formSaveBtn.style.display = 'block';
-    // formSaveBtn.style.margin = '5px auto';
-    // formSaveBtn.style.margin-bo = '5px auto';
 
     // nodes and appends
     let titlePNode = document.createTextNode('New title');
@@ -172,6 +160,12 @@ function updateData(title, desc, id) {
 
     updateDiv.appendChild(updateForm);
     clientBody.append(updateDiv);
+
+    document.querySelector('#prevData').classList.add('blur');
+    document.querySelector('#todoForm').classList.add('blur');
+    document.querySelector('#mainTitle').classList.add('blur');
+    window.scrollTo(0,0);
+
 }
 
 
@@ -193,5 +187,13 @@ function putFunction(id) {
         .then((resp) => {
             getAll();
         })
+        document.querySelector('#prevData').classList.remove('blur');
+        document.querySelector('#todoForm').classList.remove('blur');
+        document.querySelector('#mainTitle').classList.remove('blur');
+
         document.getElementById('newForm').remove();
 }
+
+// function blur(){
+//     document.getElementsByTagName('body').classList.toggle('blur');
+// }

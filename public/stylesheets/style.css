@@ -49,23 +49,30 @@ h1 {
    border-radius: 10px;
    /* border: 5px solid black; */
    margin: 10px;
-   height: 200px;
+   min-height: 200px;
    width: 250px;
    text-align: center;
    background-color: rgb(243, 204, 184);
    box-shadow: 0 10px 10px -6px #4a274f;
    padding: 10px;
+   word-break: break-all;
  }
 
 .new-form {
   font-family: 'Julius Sans One', sans-serif;
+  
 }
 .newForm {
+  font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
-  margin: 20px auto;
-  padding-top: 1em;
+  width: 350px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
   min-width: 400px;
-  min-width: 400px;
+  max-width: 400px;
   min-height: 225px;
   align-content: center;
   text-align: center;
@@ -73,6 +80,7 @@ h1 {
   background-color: rgb(243, 204, 184);
   box-shadow: 0 10px 10px -6px #4a274f;
   animation: backwards;
+  background: linear-gradient(rgb(219, 128, 128), rgb(255, 245, 108), rgb(31, 173, 255));
 }
 
 button {
@@ -102,6 +110,16 @@ button:hover {
 }
 #addButton:hover {
   background-color: rgb(241, 179, 148);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+textarea {
+  max-width: 157px;
+  max-height: 30px;
+}
 
 /* ------------------SAKUN KOODIT ---------------*/
 /* body {
